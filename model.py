@@ -52,11 +52,8 @@ class Move(Base):
         self.initiator_guess = initiator_guess
 
 
-engine = create_engine('sqlite:///spoof.db', echo=False)
-Base.metadata.create_all(engine)
+engine = create_engine('sqlite:////tmp/spoof.db', echo=False)
+#Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
-move = Move('asdf', 'sadf', '2', '3')
-session.add(move)
-session.commit()
 

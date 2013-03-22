@@ -28,6 +28,7 @@ def mkmove():
     session.commit()
     data = {'moveid': move.moveid}
     js = json.dumps(data)
+    session.close()
     resp = Response(js, status=200, mimetype="application/json")
     return resp
 
@@ -44,10 +45,12 @@ def finish(moveid):
     totals = move.adversary_hold + move.initiator_hold
     if move.adversary_guess == move.initiator_guess:
         # Empates
+        session.close()
         return "Empate!"
     else:
         initiator_aprox = abs(move.initiator_guess - totals)
         adversary_aprox = abs(move.adversary_guess - totals)
+        session.close()
         if initiator_aprox < adversary_aprox:
             # Guanya initiator
             return "You lose!"
