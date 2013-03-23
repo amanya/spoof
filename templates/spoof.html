@@ -2,21 +2,21 @@
 {% block content %}
       <div class="container">
         <div class="page-header">
-          <h1>Spoof &middot; Twitter Edition</h1>
+            <h1>{% trans %}Spoof &middot; Twitter Edition{% endtrans %}</h1>
         </div>
-        <p class="lead">Challenge your followers!
-        &nbsp;<a id="btn-restart" style="display:none;" class="btn btn-mini" href="#"><i class="icon-repeat"></i> start again</a>
+        <p class="lead">{% trans %}Challenge your followers!{% endtrans %}
+        &nbsp;<a id="btn-restart" style="display:none;" class="btn btn-mini" href="#"><i class="icon-repeat"></i> {% trans %}start again{% endtrans %}</a>
         <p>
 
         <div id="initiator">
-            <p>Enter your Twitter username:</p>
+            <p>{% trans %}Enter your Twitter username{% endtrans %}:</p>
             <div class="input-prepend">
                 <span class="add-on">@</span>
                 <input class="span2" id="id_initiator" type="text" placeholder="Username">
             </div>
         </div>
         <div id="initiator_hold" style="display:none">
-            <p>How many coins do you want to hold:</p>
+            <p>{% trans %}How many coins do you want to hold{% endtrans %}:</p>
             <div class="btn-group" data-toggle="buttons-radio">
                 <button class="btn btn-hold" type="button">0</button>
                 <button class="btn btn-hold" type="button">1</button>
@@ -25,14 +25,14 @@
             </div>
         </div>
         <div id="initiator_adversary" style="display:none">
-            <br/><p>Now enter your adversary's Twitter username:</p>
+            <br/><p>{% trans %}Now enter your adversary's Twitter username{% endtrans %}:</p>
             <div class="input-prepend">
                 <span class="add-on">@</span>
                 <input class="span2" id="id_adversary" type="text" placeholder="Username">
             </div>
         </div>
         <div id="initiator_guess" style="display:none">
-            <p>And finally make your guess:</p>
+            <p>{% trans %}And finally make your guess{% endtrans %}:</p>
             <div class="btn-group" data-toggle="buttons-radio">
                 <button class="btn btn-guess" id="btn-guess-0" type="button">0</button>
                 <button class="btn btn-guess" id="btn-guess-1" type="button">1</button>
@@ -44,8 +44,8 @@
             </div>
         </div>
         <div id="tweet_btn" style="display:none">
-            <br/><p id="msgsend">Click the Tweet button to send the challenge to your follower:</p>
-            <a href="" class="twitter-share-button" data-lang="en">Tweet</a>
+            <br/><p id="msgsend">{% trans %}Click the Tweet button to send the challenge to your follower{% endtrans %}:</p>
+            <a href="" class="twitter-share-button" data-lang="en">{% trans %}Tweet{% endtrans %}</a>
         </div>
       </div>
 {% endblock %}

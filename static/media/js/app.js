@@ -1,12 +1,12 @@
 $( document ).ready(function() {
     var hold_selected;
     var guess_selected;
-    function build_twitter_url(move_id) {
+    function build_twitter_url(move_id, text) {
         var options = {
             url: 'http://spoof.albertmanya.com/m/' + move_id,
             screen_name: $( '#id_adversary' ).val(),
             button_hashtag: 'SpoofTwitterEd',
-            text: 'You have been challenged!',
+            text: text
             count: 'none',
             size: 'large'
         };
@@ -60,7 +60,7 @@ $( document ).ready(function() {
                 'initiator_guess': guess_selected
             }
         }).done(function(msg) {
-            $('.twitter-share-button').attr('href', build_twitter_url(msg.moveid));
+            $('.twitter-share-button').attr('href', build_twitter_url(msg.moveid, msg.text));
             /* This line taken from twitter-button docu */
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
         });

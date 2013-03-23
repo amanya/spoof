@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spoof &middot; Twitter Edition</title>
+    <title>{% block title %}{% trans %}Spoof &middot; Twitter Edition{% endtrans %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{% trans %}The Twitter edition of Spoof game{% endtrans %}">
+    <meta name="author" content="Albert Manyà Pau <albertmp@eml.cc>">
 
     <!-- CSS -->
     <link href="{{ url_for('static', filename='media/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
