@@ -1,4 +1,11 @@
 $( document ).ready(function() {
+    var initiator_guess;
+    $.ajax({
+        type: 'GET',
+        url: '/info/' + moveid
+    }).done(function(data) {
+        initiator_guess = data.initiator_guess;
+    });
     var hold_selected;
     var guess_selected;
     function build_twitter_url() {
@@ -23,6 +30,7 @@ $( document ).ready(function() {
         for(var i=hold_selected; i<=6; i++) {
             $('#btn-guess-' + i.toString()).removeAttr('disabled');
         }
+        $('#btn-guess-' + initiator_guess.toString()).attr('disabled', '');
         $('.btn-hold').each(function() {
             var $el = $(this);
             if($el.text() == selected) {

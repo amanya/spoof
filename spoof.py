@@ -37,7 +37,10 @@ def mkmove():
 
 @app.route('/m/<moveid>')
 def challenge(moveid):
-    return render_template('challenge.html', moveid=moveid)
+    move = session.query(Move).filter_by(moveid=moveid)[0]
+    return render_template('challenge.html', 
+                           initiator_guess=move.initiator_guess,
+                           moveid=moveid)
 
 @app.route('/f/<moveid>', methods = ['POST'])
 def finish(moveid):
@@ -61,6 +64,15 @@ def finish(moveid):
             # Guanya adversary
             return "You win!"
 
+@app.route('/info/<moveid>')
+def info(moveid):
+    move = session.query(Move).filter_by(moveid=moveid)[0]
+    data = {'moveid': move.moveid,
+            'initiator_guess': move.initiator_guess}
+    js = json.dumps(data)
+    resp = Response(js, status=200, mimetype="application/json")
+    return resp
+    
 @app.route('/done/<moveid>')
 def done(moveid):
     move = session.query(Move).filter_by(moveid=moveid)[0]
