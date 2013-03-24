@@ -40,5 +40,8 @@
 {% endblock %}
 {% block extra_foot %}
     <script src="{{ url_for('static', filename='media/js/challenge.js') }}"></script>
+    <script type="text/javascript">
+        var moveid = '{{ moveid }}';
+    </script>
 {% endblock %}
 

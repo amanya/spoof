@@ -61,6 +61,27 @@ def finish(moveid):
             # Guanya adversary
             return "You win!"
 
+@app.route('/done/<moveid>')
+def done(moveid):
+    move = session.query(Move).filter_by(moveid=moveid)[0]
+    if move.adversary_hold and move.adversary_guess:
+        # Finished
+        if move.adversary_guess == move.initiator_guess:
+            # Empates
+            session.close()
+            return "Empate!"
+        else:
+            initiator_aprox = abs(move.initiator_guess - totals)
+            adversary_aprox = abs(move.adversary_guess - totals)
+            session.close()
+            if initiator_aprox < adversary_aprox:
+                # Guanya initiator
+                return "You win!"
+            else:
+                # Guanya adversary
+                return "You lose!"
+    else:
+        return ""
 
 
 if __name__ == '__main__':

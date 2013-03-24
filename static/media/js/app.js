@@ -6,12 +6,26 @@ $( document ).ready(function() {
             url: 'http://spoof.albertmanya.com/m/' + move_id,
             screen_name: $( '#id_adversary' ).val(),
             button_hashtag: 'SpoofTwitterEd',
-            text: text
+            text: text,
             count: 'none',
             size: 'large'
         };
         var params = $.param(options);
         return 'https://twitter.com/share?' + params;
+    }
+    function do_poll(move_id) {
+        $.ajax({
+            type: 'GET',
+            url: '/done/' + move_id
+        }).done(function(data) {
+            if(data == '') {
+                setTimeout(function() {
+                    do_poll(move_id);
+                }, 5000);
+            } else {
+                alert(data);
+            }
+        });
     }
     $('#id_initiator').keyup( function() {
         var $this = $(this);
@@ -59,10 +73,11 @@ $( document ).ready(function() {
                 'initiator_hold': hold_selected,
                 'initiator_guess': guess_selected
             }
-        }).done(function(msg) {
-            $('.twitter-share-button').attr('href', build_twitter_url(msg.moveid, msg.text));
+        }).done(function(data) {
+            $('.twitter-share-button').attr('href', build_twitter_url(data.moveid, data.text));
             /* This line taken from twitter-button docu */
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            do_poll(data.moveid);
         });
         $('.btn-guess').each(function() {
             var $el = $(this);
