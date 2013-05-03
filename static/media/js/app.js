@@ -3,7 +3,7 @@ $( document ).ready(function() {
     var guess_selected;
     function build_twitter_url(move_id, text) {
         var options = {
-            url: 'http://spoof.albertmanya.com/m/' + move_id,
+            url: 'http://spoof.nap.cat/m/' + move_id,
             screen_name: $( '#id_adversary' ).val(),
             button_hashtag: 'SpoofTwitterEd',
             text: text,

@@ -10,7 +10,7 @@ $( document ).ready(function() {
     var guess_selected;
     function build_twitter_url() {
         var options = {
-            url: 'http://spoof.albertmanya.com/',
+            url: 'http://spoof.nap.cat/',
             screen_name: $( '#id_adversary' ).val(),
             button_hashtag: 'SpoofTwitterEd',
             text: 'You have been challenged!',

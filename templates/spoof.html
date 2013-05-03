@@ -2,7 +2,7 @@
 {% block content %}
       <div class="container">
         <div class="page-header">
-            <h1>{% trans %}Spoof &middot; Twitter Edition{% endtrans %}</h1>
+          <h1>{% trans %}Spoof &middot; Twitter Edition{% endtrans %}</h1>
         </div>
         <p class="lead">{% trans %}Challenge your followers!{% endtrans %}
         &nbsp;<a id="btn-restart" style="display:none;" class="btn btn-mini" href="#"><i class="icon-repeat"></i> {% trans %}start again{% endtrans %}</a>
@@ -12,7 +12,7 @@
             <p>{% trans %}Enter your Twitter username{% endtrans %}:</p>
             <div class="input-prepend">
                 <span class="add-on">@</span>
-                <input class="span2" id="id_initiator" type="text" placeholder="Username">
+                <input class="span2" id="id_initiator" type="text" placeholder="{% trans %}Username{% endtrans %}">
             </div>
         </div>
         <div id="initiator_hold" style="display:none">
@@ -28,7 +28,7 @@
             <br/><p>{% trans %}Now enter your adversary's Twitter username{% endtrans %}:</p>
             <div class="input-prepend">
                 <span class="add-on">@</span>
-                <input class="span2" id="id_adversary" type="text" placeholder="Username">
+                <input class="span2" id="id_adversary" type="text" placeholder="{% trans %}Username{% endtrans %}">
             </div>
         </div>
         <div id="initiator_guess" style="display:none">

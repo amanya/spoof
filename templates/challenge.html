@@ -2,14 +2,14 @@
 {% block content %}
       <div class="container">
         <div class="page-header">
-          <h1>Spoof &middot; Twitter Edition</h1>
+          <h1>{% trans %}Spoof &middot; Twitter Edition{% endtrans %}</h1>
         </div>
-        <p class="lead">Challenge accepted!
-        &nbsp;<a id="btn-restart" style="display:none;" class="btn btn-mini" href="#"><i class="icon-repeat"></i> start again</a>
+        <p class="lead">{% trans %}Challenge accepted{% endtrans %}!
+        &nbsp;<a id="btn-restart" style="display:none;" class="btn btn-mini" href="#"><i class="icon-repeat"></i> {% trans %}start again{% endtrans %}</a>
         <p>
 
         <div id="adversary_hold">
-            <p>How many coins do you want to hold?</p>
+            <p>{% trans %}How many coins do you want to hold{% endtrans %}?</p>
             <div class="btn-group" data-toggle="buttons-radio">
                 <button class="btn btn-hold" type="button">0</button>
                 <button class="btn btn-hold" type="button">1</button>
@@ -19,7 +19,7 @@
         </div>
         <br/>
         <div id="adversary_guess" style="display:none">
-            <p>What's your guess?</p>
+            <p>{% trans %}What's your guess{% endtrans %}?</p>
             <div class="btn-group" data-toggle="buttons-radio">
                 <button class="btn btn-guess" id="btn-guess-0" type="button">0</button>
                 <button class="btn btn-guess" id="btn-guess-1" type="button">1</button>
@@ -32,8 +32,8 @@
         </div>
         <br/>
         <div id="make_guess" style="display:none;">
-            <p>Click to send your guess:</p>
-            <a id="btn-challenge" class="btn" href="#"><i class="icon-thumbs-up"></i> make your guess</a>
+            <p>{% trans %}Click to send your guess{% endtrans %}:</p>
+            <a id="btn-challenge" class="btn" href="#"><i class="icon-thumbs-up"></i> {% trans %}make your guess{% endtrans %}</a>
         </div>
       </div>
 

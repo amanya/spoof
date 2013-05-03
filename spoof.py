@@ -83,6 +83,7 @@ def done(moveid):
             session.close()
             return "Empate!"
         else:
+            totals = move.adversary_hold + move.initiator_hold
             initiator_aprox = abs(move.initiator_guess - totals)
             adversary_aprox = abs(move.adversary_guess - totals)
             session.close()
@@ -94,6 +95,10 @@ def done(moveid):
                 return "You lose!"
     else:
         return ""
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(['ca', 'en'])
 
 
 if __name__ == '__main__':
