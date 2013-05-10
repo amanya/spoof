@@ -1,5 +1,6 @@
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash, Response
+from werkzeug.contrib.fixers import ProxyFix
 from flaskext.babel import Babel, gettext
 from model import Move, session
 import json
@@ -14,6 +15,7 @@ PASSWORD = 'default'
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 babel = Babel(app)
 
 @app.route('/')
